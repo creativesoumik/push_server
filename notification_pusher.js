@@ -171,10 +171,10 @@ module.exports = function (db, queue) {
 
         var note = new apn.Notification();
         note.expiry = Math.floor(Date.now() / 1000) + 3600; // Expires 1 hour from now.
-        note.badge = 3;
+        note.badge = 0;
         note.sound = "ping.aiff";
         note.alert = msg;
-        note.payload = {'params': params};
+        note.payload = {params: params};
         note.topic = "com.classicphotographers";
 
         console.log(deviceToken);
