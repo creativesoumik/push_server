@@ -1,0 +1,29 @@
+{
+  "name": "push_server",
+  "version": "1.0.0",
+  "description": "Push notification server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goldmank/push_server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/goldmank/push_server/issues"
+  },
+  "homepage": "https://github.com/goldmank/push_server#readme",
+  "dependencies": {
+    "apn": "^2.2.0",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "fs": "0.0.1-security",
+    "jade": "^1.11.0",
+    "kue": "^0.11.6",
+    "mysql": "^2.15.0",
+    "winston": "^2.4.0"
+  }
+}
