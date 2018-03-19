@@ -183,6 +183,11 @@ module.exports = function (db, queue) {
 
         apnProvider.send(note, deviceToken).then( (result) => {
             console.log(result);
+            if (result.failed) {
+                for (i in result.failed) {
+                    console.log(result.failed[i].response);
+                }
+            }
             callback(result);
         });
     }
