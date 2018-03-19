@@ -8,7 +8,7 @@ module.exports = function (db, queue) {
             keyId: "EUVE5EW7B2",
             teamId: "64XN5JLDFL"
         },
-        production: false
+        production: true
     };
     var apnProvider = new apn.Provider(apn_options);
 
