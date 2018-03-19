@@ -19,7 +19,7 @@ module.exports = function (db, queue) {
     function init() {
         db.select('push_device', '*', null, function (err, results) {
             if (err) {
-                var createSQL = "CREATE TABLE `push_device` (`id` int(11) unsigned NOT NULL AUTO_INCREMENT,`user_id` varchar(32) NOT NULL DEFAULT '',`device_token` varchar(255) NOT NULL DEFAULT '',PRIMARY KEY (`id`),KEY `user_id` (`user_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+                var createSQL = "CREATE TABLE `push_device` (`id` int(11) unsigned NOT NULL AUTO_INCREMENT,`user_id` varchar(32) NOT NULL DEFAULT '',`device_token` varchar(512) NOT NULL DEFAULT '',PRIMARY KEY (`id`),KEY `user_id` (`user_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
                 db.query(createSQL, function (err, results) {
                     if (!err) {
                         console.log('push_device table created');
@@ -32,7 +32,7 @@ module.exports = function (db, queue) {
 
         db.select('push_messages', '*', null, function (err, results) {
             if (err) {
-                var createSQL = "CREATE TABLE `push_messages` (`id` int(11) unsigned NOT NULL AUTO_INCREMENT,`device` varchar(255) NOT NULL DEFAULT '',`message` varchar(255) DEFAULT NULL,`params` varchar(255) DEFAULT NULL,`sent` tinyint(4) NOT NULL DEFAULT '0',PRIMARY KEY (`id`),KEY `device` (`device`)) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+                var createSQL = "CREATE TABLE `push_messages` (`id` int(11) unsigned NOT NULL AUTO_INCREMENT,`device` varchar(512) NOT NULL DEFAULT '',`message` varchar(512) DEFAULT NULL,`params` varchar(512) DEFAULT NULL,`sent` tinyint(4) NOT NULL DEFAULT '0',PRIMARY KEY (`id`),KEY `device` (`device`)) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
                 db.query(createSQL, function (err, results) {
                     if (!err) {
                         console.log('push_messages table created');
