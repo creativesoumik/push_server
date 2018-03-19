@@ -87,6 +87,11 @@ function sendNotification(userId, userType, os, message, params, callback) {
         var user = users[u];
         var uid = buildPushUserId(user, userType, os);
         notification_pusher.send(uid, message, params, function(result) {
+            if (result.failed) {
+                for (i in result.failed) {
+                    winston.info(result.failed[i].response);
+                }
+            }
             callback(result);
         });
     }
